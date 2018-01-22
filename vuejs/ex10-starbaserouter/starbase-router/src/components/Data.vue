@@ -24,14 +24,12 @@ export default {
     },
     methods: {
       fetchItems() {
-        console.log('foi');
         this.items = []
         this.type = this.$route.params.type
         let initial_ids = [1, 2, 3]
 
         for(let i in initial_ids) {
           let id = initial_ids[i]
-          console.log('id', id)
           axios.get(`https://swapi.co/api/${this.type}/${id}`)
             .then( data => data.data)
             .then( json => this.items.push(json))
